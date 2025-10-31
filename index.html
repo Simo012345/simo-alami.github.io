@@ -1,44 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Mohamed (Simo) Alami - Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mohamed (Simo) Alami — Portfolio</title>
+  <meta name="description" content="Portfolio of Mohamed (Simo) Alami — Game development & QA projects." />
+
   <style>
-    body { font-family: Arial, sans-serif; margin: 40px; background: #fafafa; color: #222; }
-    h1 { color: #0056b3; }
-    a { color: #0056b3; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    section { margin-bottom: 25px; }
+    /* ====== Design Tokens ====== */
+    :root{
+      --bg: #0b0d10;
+      --card: #12161b;
+      --muted: #8993a1;
+      --text: #eaf0f7;
+      --brand: #6aa5ff;
+      --brand-strong:#3f86ff;
+      --chip:#1a212b;
+      --border:#202733;
+      --shadow: 0 10px 25px rgba(0,0,0,.35);
+    }
+    :root.light{
+      --bg: #f7f9fc;
+      --card: #ffffff;
+      --muted: #5a6576;
+      --text: #0e1420;
+      --brand: #2d6fff;
+      --brand-strong:#1b56d4;
+      --chip:#eef3ff;
+      --border:#e8edf5;
+      --shadow: 0 10px 25px rgba(10,20,40,.08);
+    }
+
+    /* ====== Base ====== */
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{color:var(--brand-strong)}
+    .container{max-width:1000px;margin:0 auto;padding:28px 20px}
+
+    /* ====== Header ====== */
+    .header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .avatar{
+      width:48px;height:48px;border-radius:12px;
+      background:linear-gradient(135deg,var(--brand),transparent 60%), var(--chip);
+      border:1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    h1{font-size:1.6rem;margin:0 0 2px}
+    .subtitle{margin:0;color:var(--muted);font-size:.95rem}
+    .actions{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 14px;border:1px solid var(--border);border-radius:10px;
+      background:var(--card);color:var(--text);box-shadow:var(--shadow);
+      transition:transform .08s ease, border-color .2s ease;
+      font-weight:600
+    }
+    .btn:hover{transform:translateY(-1px);border-color:var(--brand)}
+    .btn.primary{background:var(--brand);border-color:var(--brand);color:white}
+    .toggle{
+      border:none;background:var(--card);border:1px solid var(--border);border-radius:10px;
+      padding:10px 12px;cursor:pointer;color:var(--text);box-shadow:var(--shadow)
+    }
+
+    /* ====== Sections ====== */
+    section{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;margin:18px 0;box-shadow:var(--shadow)}
+    section h2{margin:0 0 14px;font-size:1.15rem;letter-spacing:.2px}
+
+    /* ====== Summary ====== */
+    .summary{color:var(--muted)}
+
+    /* ====== Chips ====== */
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .chip{background:var(--chip);color:var(--text);padding:6px 10px;border-radius:999px;border:1px solid var(--border);font-weight:600;font-size:.9rem}
+
+    /* ====== Projects ====== */
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .card{
+      grid-column: span 12;
+      background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;
+      transition:transform .08s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+    .card:hover{transform:translateY(-2px);border-color:var(--brand);box-shadow:0 12px 30px rgba(50,100,200,.18)}
+    .card h3{margin:0 0 6px;font-size:1.05rem}
+    .meta{color:var(--muted);font-size:.92rem;margin-bottom:10px}
+    .card p{margin:0 0 12px;color:var(--text)}
+    .card .links{display:flex;gap:8px;flex-wrap:wrap}
+    .card .links a{padding:8px 12px;border:1px solid var(--border);border-radius:10px}
+    .card .links a:hover{border-color:var(--brand)}
+    @media(min-width:700px){
+      .card.span6{grid-column: span 6}
+    }
+
+    /* ====== Footer ====== */
+    footer{color:var(--muted);text-align:center;padding:26px 0 10px}
   </style>
 </head>
 <body>
-  <h1>Mohamed (Simo) Alami</h1>
-  <p><b>Email:</b> <a href="mailto:simo-can@outlook.com">simo-can@outlook.com</a></p>
-  <p><b>LinkedIn:</b> <a href="https://linkedin.com/in/mohamedalami2/">linkedin.com/in/mohamedalami2</a></p>
+  <div class="container">
 
- <section>
-  <h2>Projects</h2>
-  <ul>
-    <li>
-      <b>🎮 Tower Defense Game</b> — C# | UQAR (2025)<br>
-      <small>School project developed in C#, featuring tower placement, enemy waves, and resource management.</small><br>
-      <a href="https://github.com/Simo012345/TowerDefenseGame" target="_blank">View on GitHub</a>
-    </li>
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <div class="avatar" aria-hidden="true"></div>
+        <div>
+          <h1>Mohamed (Simo) Alami</h1>
+          <p class="subtitle">Computer Science Student • Game Development & QA</p>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="btn" href="mailto:simo-can@outlook.com" aria-label="Email Simo">Email</a>
+        <a class="btn" href="https://linkedin.com/in/mohamedalami2" target="_blank" rel="noopener">LinkedIn</a>
+        <button id="themeToggle" class="toggle" aria-label="Toggle theme">🌓</button>
+      </div>
+    </header>
 
-    <li>
-      <b>💻 TP II UQAR</b> — Website Project (HTML, CSS, JavaScript) | UQAR (2025)<br>
-      <small>Web development school project creating a fully functional and responsive website using HTML, CSS, and JavaScript.</small><br>
-      <a href="https://github.com/DarkWhige/TP_II_UQAR" target="_blank">View on GitHub</a>
-    </li>
+    <!-- Summary -->
+    <section aria-labelledby="about">
+      <h2 id="about">About</h2>
+      <p class="summary">
+        Passionate student currently in computer science with a strong focus on <b>video game development</b> and <b>software testing</b>.
+        Skilled in C#, JavaScript, and software QA, with hands-on experience in gameplay programming, debugging, and testing for indie titles.
+        I also have experience with engines such as <b>Unreal Engine 5</b>, <b>Unity</b>, <b>Godot</b>, and <b>Roblox Studio</b>, and I am currently working
+        with a small team on a <b>psychological horror game</b> in Unreal Engine 5.
+      </p>
+      <div class="chips" aria-label="Skills">
+        <span class="chip">C#</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">Unreal Engine 5</span>
+        <span class="chip">Unity</span>
+        <span class="chip">Godot</span>
+        <span class="chip">QA Testing</span>
+        <span class="chip">Git</span>
+      </div>
+    </section>
 
-    <li>
-      <b>Uno Game</b> — C# | UQAR (2024)
-    </li>
-    <li>
-      <b>Highway Code Quiz App</b> — JavaScript, jQuery | UQAR (2024)
-    </li>
-    <li>
-      <b>Website Project</b> — HTML, CSS, JavaScript | UQAR (2025)
-    </li>
-  </ul>
-</section>
+    <!-- Projects -->
+    <section aria-labelledby="projects">
+      <h2 id="projects">Projects</h2>
+
+      <div class="grid">
+        <!-- Tower Defense Game -->
+        <article class="card span6">
+          <h3>🎮 Tower Defense Game</h3>
+          <div class="meta">C# • UQAR • 2025</div>
+          <p>School project featuring tower placement, enemy waves, pathfinding, and resource/upgrade systems.</p>
+          <div class="links">
+            <a href="https://github.com/Simo012345/TowerDefenseGame" target="_blank" rel="noopener">View on GitHub</a>
+          </div>
+        </article>
+
+        <!-- TP II UQAR (Website) -->
+        <article class="card span6">
+          <h3>💻 TP II UQAR — Website Project</h3>
+          <div class="meta">HTML • CSS • JavaScript • UQAR • 2025</div>
+          <p>Responsive website built for a university assignment; clean layout, accessible components, and basic interactivity.</p>
+          <div class="links">
+            <a href="https://github.com/DarkWhige/TP_II_UQAR" target="_blank" rel="noopener">View on GitHub</a>
+          </div>
+        </article>
+
+        <!-- Uno Game -->
+        <article class="card span6">
+          <h3>🃏 Uno Game</h3>
+          <div class="meta">C# • 2024</div>
+          <p>Digital Uno card game built in C# (Visual Studio) with turn-based logic and a simple UI.</p>
+          <div class="links">
+            <!-- Add a repo link here later if you make it public -->
+            <a href="#" onclick="alert('Code available upon request.'); return false;">Code (on request)</a>
+          </div>
+        </article>
+
+        <!-- Highway Code Quiz App -->
+        <article class="card span6">
+          <h3>🧠 Highway Code Quiz App</h3>
+          <div class="meta">JavaScript • jQuery • 2024</div>
+          <p>Web app that quizzes users on highway code questions; responsive UI with Bootstrap components and score tracking.</p>
+          <div class="links">
+            <a href="#" onclick="alert('Live demo/repo can be added when available.'); return false;">Demo (coming soon)</a>
+          </div>
+        </article>
+
+        <!-- Psychological Horror (in dev) -->
+        <article class="card span6">
+          <h3>👻 Psychological Horror — In Development</h3>
+          <div class="meta">Unreal Engine 5 • Team Project</div>
+          <p>Prototype of a first-person psychological horror experience focusing on atmosphere, sound design, and interaction systems.</p>
+          <div class="links">
+            <a href="#" onclick="alert('Private for now — can share on request.'); return false;">Preview (on request)</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Experience (optional short version) -->
+    <section aria-labelledby="experience">
+      <h2 id="experience">Experience</h2>
+      <div class="grid">
+        <article class="card span6">
+          <h3>Logistics Coordinator — VTL Express</h3>
+          <div class="meta">Montreal • May 2025 – Present</div>
+          <p>Route planning, shipment tracking, delivery coordination, and process optimization.</p>
+        </article>
+        <article class="card span6">
+          <h3>Game Tester — Eidos Montréal</h3>
+          <div class="meta">Montreal • Jan 2024 / May 2024</div>
+          <p>QA on pre-release builds: bug reporting, performance checks, gameplay & UI validation.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section aria-labelledby="contact">
+      <h2 id="contact">Contact</h2>
+      <p>Email: <a href="mailto:simo-can@outlook.com">simo-can@outlook.com</a> &nbsp;•&nbsp;
+         LinkedIn: <a href="https://linkedin.com/in/mohamedalami2" target="_blank" rel="noopener">mohamedalami2</a>
+      </p>
+    </section>
+
+    <footer>© <span id="year"></span> Mohamed (Simo) Alami</footer>
+  </div>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme preference
+    const root = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if(saved === 'light'){ root.classList.add('light'); }
+    document.getElementById('themeToggle').addEventListener('click', ()=>{
+      root.classList.toggle('light');
+      localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>
