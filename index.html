@@ -31,14 +31,12 @@
       --shadow: 0 10px 25px rgba(10,20,40,.08);
     }
 
-    /* ====== Base ====== */
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
     a{color:var(--brand);text-decoration:none}
     a:hover{color:var(--brand-strong)}
     .container{max-width:1000px;margin:0 auto;padding:28px 20px}
 
-    /* ====== Header ====== */
     .header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px}
     .brand{display:flex;align-items:center;gap:14px}
     .avatar{
@@ -64,18 +62,14 @@
       padding:10px 12px;cursor:pointer;color:var(--text);box-shadow:var(--shadow)
     }
 
-    /* ====== Sections ====== */
     section{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;margin:18px 0;box-shadow:var(--shadow)}
     section h2{margin:0 0 14px;font-size:1.15rem;letter-spacing:.2px}
 
-    /* ====== Summary ====== */
     .summary{color:var(--muted)}
 
-    /* ====== Chips ====== */
     .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
     .chip{background:var(--chip);color:var(--text);padding:6px 10px;border-radius:999px;border:1px solid var(--border);font-weight:600;font-size:.9rem}
 
-    /* ====== Projects ====== */
     .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
     .card{
       grid-column: span 12;
@@ -93,14 +87,12 @@
       .card.span6{grid-column: span 6}
     }
 
-    /* ====== Footer ====== */
     footer{color:var(--muted);text-align:center;padding:26px 0 10px}
   </style>
 </head>
 <body>
   <div class="container">
 
-    <!-- Header -->
     <header class="header">
       <div class="brand">
         <div class="avatar" aria-hidden="true"></div>
@@ -110,22 +102,21 @@
         </div>
       </div>
       <div class="actions">
-        <a class="btn" href="mailto:simo-can@outlook.com" aria-label="Email Simo">Email</a>
-        <a class="btn" href="https://linkedin.com/in/mohamedalami2" target="_blank" rel="noopener">LinkedIn</a>
-        <button id="themeToggle" class="toggle" aria-label="Toggle theme">🌓</button>
+        <a class="btn" href="mailto:simo-can@outlook.com">Email</a>
+        <a class="btn" href="https://linkedin.com/in/mohamedalami2" target="_blank">LinkedIn</a>
+        <button id="themeToggle" class="toggle">🌓</button>
       </div>
     </header>
 
-    <!-- Summary -->
-    <section aria-labelledby="about">
-      <h2 id="about">About</h2>
+    <section>
+      <h2>About</h2>
       <p class="summary">
         Passionate student currently in computer science with a strong focus on <b>video game development</b> and <b>software testing</b>.
         Skilled in C#, JavaScript, and software QA, with hands-on experience in gameplay programming, debugging, and testing for indie titles.
         I also have experience with engines such as <b>Unreal Engine 5</b>, <b>Unity</b>, <b>Godot</b>, and <b>Roblox Studio</b>, and I am currently working
         with a small team on a <b>psychological horror game</b> in Unreal Engine 5.
       </p>
-      <div class="chips" aria-label="Skills">
+      <div class="chips">
         <span class="chip">C#</span>
         <span class="chip">JavaScript</span>
         <span class="chip">Unreal Engine 5</span>
@@ -136,97 +127,61 @@
       </div>
     </section>
 
-    <!-- Projects -->
-    <section aria-labelledby="projects">
-      <h2 id="projects">Projects</h2>
-
+    <section>
+      <h2>Projects</h2>
       <div class="grid">
-        <!-- Tower Defense Game -->
         <article class="card span6">
           <h3>🎮 Tower Defense Game</h3>
           <div class="meta">C# • UQAR • 2025</div>
           <p>School project featuring tower placement, enemy waves, pathfinding, and resource/upgrade systems.</p>
           <div class="links">
-            <a href="https://github.com/Simo012345/TowerDefenseGame" target="_blank" rel="noopener">View on GitHub</a>
+            <a href="https://github.com/Simo012345/TowerDefenseGame" target="_blank">View on GitHub</a>
           </div>
         </article>
 
-        <!-- TP II UQAR (Website) -->
         <article class="card span6">
           <h3>💻 TP II UQAR — Website Project</h3>
           <div class="meta">HTML • CSS • JavaScript • UQAR • 2025</div>
           <p>Responsive website built for a university assignment; clean layout, accessible components, and basic interactivity.</p>
           <div class="links">
-            <a href="https://github.com/DarkWhige/TP_II_UQAR" target="_blank" rel="noopener">View on GitHub</a>
+            <a href="https://github.com/DarkWhige/TP_II_UQAR" target="_blank">View on GitHub</a>
           </div>
         </article>
 
-        <!-- Uno Game -->
         <article class="card span6">
           <h3>🃏 Uno Game</h3>
           <div class="meta">C# • 2024</div>
           <p>Digital Uno card game built in C# (Visual Studio) with turn-based logic and a simple UI.</p>
           <div class="links">
-            <!-- Add a repo link here later if you make it public -->
             <a href="#" onclick="alert('Code available upon request.'); return false;">Code (on request)</a>
           </div>
         </article>
 
-        <!-- Highway Code Quiz App -->
         <article class="card span6">
           <h3>🧠 Highway Code Quiz App</h3>
           <div class="meta">JavaScript • jQuery • 2024</div>
           <p>Web app that quizzes users on highway code questions; responsive UI with Bootstrap components and score tracking.</p>
           <div class="links">
-            <a href="#" onclick="alert('Live demo/repo can be added when available.'); return false;">Demo (coming soon)</a>
+            <a href="#" onclick="alert('Live demo/repo can be added when available.'); return false;">Coming soon</a>
           </div>
         </article>
 
-        <!-- Psychological Horror (in dev) -->
         <article class="card span6">
           <h3>👻 Psychological Horror — In Development</h3>
           <div class="meta">Unreal Engine 5 • Team Project</div>
           <p>Prototype of a first-person psychological horror experience focusing on atmosphere, sound design, and interaction systems.</p>
           <div class="links">
-            <a href="#" onclick="alert('Private for now — can share on request.'); return false;">Preview (on request)</a>
+            <a href="#" onclick="alert('Demo coming soon!'); return false;">Demo coming soon</a>
           </div>
         </article>
       </div>
-    </section>
-
-    <!-- Experience (optional short version) -->
-    <section aria-labelledby="experience">
-      <h2 id="experience">Experience</h2>
-      <div class="grid">
-        <article class="card span6">
-          <h3>Logistics Coordinator — VTL Express</h3>
-          <div class="meta">Montreal • May 2025 – Present</div>
-          <p>Route planning, shipment tracking, delivery coordination, and process optimization.</p>
-        </article>
-        <article class="card span6">
-          <h3>Game Tester — Eidos Montréal</h3>
-          <div class="meta">Montreal • Jan 2024 / May 2024</div>
-          <p>QA on pre-release builds: bug reporting, performance checks, gameplay & UI validation.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section aria-labelledby="contact">
-      <h2 id="contact">Contact</h2>
-      <p>Email: <a href="mailto:simo-can@outlook.com">simo-can@outlook.com</a> &nbsp;•&nbsp;
-         LinkedIn: <a href="https://linkedin.com/in/mohamedalami2" target="_blank" rel="noopener">mohamedalami2</a>
-      </p>
     </section>
 
     <footer>© <span id="year"></span> Mohamed (Simo) Alami</footer>
   </div>
 
   <script>
-    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Theme preference
     const root = document.documentElement;
     const saved = localStorage.getItem('theme');
     if(saved === 'light'){ root.classList.add('light'); }
